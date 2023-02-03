@@ -1,0 +1,12 @@
+.btPrincipales{
+    text-align: center;
+    width: 150px;
+    padding: 10px;
+    float: left;
+    background: skyblue;
+}
+
+.botonesPrincipales{
+    width: 100%;
+    margin-top: 20px;
+}
