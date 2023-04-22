@@ -20,60 +20,56 @@
         <script src="../js/bootstrap/bootstrap.min.js"></script>
         <!-- iconos -->
         <script src="https://kit.fontawesome.com/56e130d827.js"></script>
+
+        <!-- gantt -->
+        <script src="https://code.highcharts.com/gantt/highcharts-gantt.js"></script>
+        <script src="https://code.highcharts.com/gantt/modules/accessibility.js"></script>
+
+        <!-- para el date range picker -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
         
     </body>
 </html>
 
-<div id="tituloPrincipal" style="background: skyblue;">
-    <h1 style="text-align: center;">TUS FINANZAS</h1>
-    <h2 id="fechaHoy" style="float:right">dd/mm/yyyy</h2>
-</div>
-<div id="divBtnsPrincipales" style="width: 100%;text-align: center;">
-    <!-- para centrar el div dentro del otro div le ponemos al div padre text align center y al div hijo margin 0px autossssss} -->
-    <br>
-    <div style="width:360px;margin: 0px auto"> 
-        <div id="btnIngreso" data-toggle="modal" data-target="#miModal" class="btnsPrincipales" style="background-image: linear-gradient(to top left,rgb(7, 184, 15),#90EE90);">
-            <p style="margin-top: 10px;">REGISTRAR<br>INGRESO</p>
-        </div>
-        <div id="btnGasto" class="btnsPrincipales" style="background-image: linear-gradient(to top left,rgb(235, 23, 23),#ff726b);margin-left: 20px;">
-            <p style="margin-top: 10px;">REGISTRAR<br>GASTO</p>
-        </div>
-    </div>
-    <br>
-</div>
-<div id="divIngreso">
-
-</div>
-<div id="divGasto">
-</div>
-<br><br>
-<div id="btnsSecundarios" style="width: 100%;">
-    <button><i class="fa-solid fa-burger" style="font-size: 40px;float: left;padding: 5px;"></i></button>
-    <button><i class="fa-solid fa-house" style="font-size: 40px;float: left;padding: 5px;"></i></button>
-    <button><i class="fa-solid fa-bus" style="font-size: 40px;float: left;padding: 5px;"></i></button>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>N</th>
+                <th>ELEMENTO</th>
+                <th>EMPRESA</th>
+                <th>PROGRESO</th>
+                <th>A</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>asdf</td>
+                <td>asdf</td>
+                <td>
+                    <progress style="width: 100%;" max="10" value="6"></progress>
+                    <progress style="width: 100%;appearance:default;background:green" max="100" value="70"></progress>
+                </td>
+                <td>asd</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
-<!-- Enlace para abrir el modal -->
-<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#miModal">Abrir Modal</button> -->
-<!-- Modal -->
-<div id="miModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Contenido del modal -->
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: skyblue; height: 50px;">
-                <h4>REGISTRAR INGRESO</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body" style="text-align: center;">
-                <span>Monto: </span>
-                <input id="inputMonto" type="number">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="guardarIngreso()">Guardar</button>
-                <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
+<!-- <div id="divHightChart" style="width: 90%;">
+    
+</div> -->
+
+<div style="padding:10px">
+    <i class="fa fa-calendar" aria-hidden="true" style="font-size: 20px;"></i>
+    <select  id="selectTipoFecha" style="height: 30px;margin-right: -6px;" onchange="cambiarDatePicker(this.value)">
+        <option value="1">Fecha</option>
+        <option value="2">Rango</option>
+    </select>
+    <input id="rangoFechas" name="datetimes" style="width:200px; height: 30px;">
 </div>
 
 
