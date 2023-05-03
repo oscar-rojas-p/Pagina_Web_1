@@ -29,6 +29,9 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+        <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
         
     </body>
 </html>
@@ -48,6 +51,13 @@
     .daterangepicker::before{
         display: flex !important;
     }
+
+
+    #map { 
+        width: 100%;
+        height: 580px;
+        box-shadow: 5px 5px 5px #888;
+    }
 </style>
 
 
@@ -55,6 +65,8 @@
     <i style="font-size: 20px;margin-top: 5px;margin-right: 10px;" class="fa fa-calendar-o" aria-hidden="true"></i>
     <input id="rangoFechas" name="datetimes" style="width:200px; height: 30px;padding-left:8px;border-radius:5px;border:1px solid #c0bdbd">
 </div>
+
+<div id="map"></div>
 
 
 <!-- aca recien lee las funciones cuando eliges un id de los divs pues si se pone antes estos aun no estan declarados -->
