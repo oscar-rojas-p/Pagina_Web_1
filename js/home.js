@@ -5,16 +5,15 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector('#optionFecha').style.background = '#08c'
     document.querySelector('#optionFecha').style.color = 'white'
 
-    var map = L.map('map').setView([41.66, -4.72],15);
+    var map = L.map('map').setView([-12.0029,  -77.08278],15);      //latitud y longitud palacio de la juventud
 
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
         maxZoom: 18
     }).addTo(map);
 
     L.control.scale().addTo(map);
 
-    L.marker([41.66, -4.71],{draggable: true}).addTo(map);
+    L.marker([-12.0029,  -77.08278],{draggable: true}).addTo(map);
 
 });
 
