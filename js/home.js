@@ -73,9 +73,7 @@ function agregarBotones(){
 
     divTest.appendChild(divOpciones)
     
-    // document.querySelector('.daterangepicker').appendChild(divTest)
-
-    document.querySelector('.daterangepicker').insertAdjacentElement('afterbegin',divTest)
+    document.querySelector('.daterangepicker').appendChild(divTest)
     
     document.querySelector('#optionFecha').addEventListener('click',function(){
         modificarCalendario(1)
