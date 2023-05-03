@@ -1,132 +1,11 @@
-// Highcharts.ganttChart('divHightChart', {
+document.addEventListener("DOMContentLoaded", function() {
 
-//     xAxis: [{
+    inicializarDatePicker(true)
+    agregarBotones()
+    document.querySelector('#optionFecha').style.background = '#08c'
+    document.querySelector('#optionFecha').style.color = 'white'
 
-//         labels: {
-//             format: '{value: %d}'
-//         },
-//     },{
-
-//         labels: {
-//             format: '{value: %B}'
-//         }
-//     }
-//     ],
-
-//     yAxis: {
-//         uniqueNames: true
-//     },
-
-//     accessibility: {
-//         point: {
-//             descriptionFormatter: function (point) {
-//                 var completedValue = point.completed ?
-//                     point.completed.amount || point.completed : null,
-//                     completed = completedValue ?
-//                     ' Task ' + Math.round(completedValue * 1000) / 10 + '% completed.' :
-//                     '';
-//                 return Highcharts.format(
-//                     '{point.yCategory}.{completed} Start {point.x:%Y-%m-%d}, end {point.x2:%Y-%m-%d}.',
-//                     { point, completed }
-//                 );
-//             }
-//         }
-//     },
-
-//     lang: {
-
-//     },
-
-//     series: [
-//         {
-//             name: 'Tiempo Teorico',
-//             data: [
-//                 {
-//                     start: Date.UTC(2018, 11, 1),
-//                     end: Date.UTC(2018, 11, 2),
-//                     completed: 0.95,
-//                     name: 'Entregable 1'
-//                 },
-//                 {
-//                     start: Date.UTC(2018, 11, 2),
-//                     end: Date.UTC(2018, 11, 5),
-//                     completed: 0.444,
-//                     name: 'Entregable 2'
-//                 },
-//                 {
-//                     start: Date.UTC(2018, 11, 8),
-//                     end: Date.UTC(2018, 11, 9),
-//                     completed: 0.141,
-//                     name: 'Entregable 3'
-//                 },
-//                 {
-//                     start: Date.UTC(2018, 11, 9),
-//                     end: Date.UTC(2018, 11, 19),
-//                     completed: {
-//                         amount: 0.3,
-//                         fill: '#fa0'
-//                     },
-//                     name: 'Entregable 2'
-//                 },
-//                 {
-//                     start: Date.UTC(2018, 11, 10),
-//                     end: Date.UTC(2018, 11, 23),
-//                     name: 'Entregable 3'
-//                 }
-//             ]
-//         },
-//         {
-//             name: 'Tiempo Real',
-//             data: [
-//                 {
-//                     start: Date.UTC(2018, 11, 1),
-//                     end: Date.UTC(2018, 11, 2),
-//                     completed: 0.95,
-//                     name: 'Entregable 1'
-//                 },
-//                 {
-//                     start: Date.UTC(2018, 11, 2),
-//                     end: Date.UTC(2018, 11, 5),
-//                     completed: 0.444,
-//                     name: 'Entregable 2'
-//                 },
-//                 {
-//                     start: Date.UTC(2018, 11, 8),
-//                     end: Date.UTC(2018, 11, 9),
-//                     completed: 0.141,
-//                     name: 'Entregable 3'
-//                 },
-//                 {
-//                     start: Date.UTC(2018, 11, 9),
-//                     end: Date.UTC(2018, 11, 19),
-//                     completed: {
-//                         amount: 0.3,
-//                         fill: '#fa0'
-//                     },
-//                     name: 'Entregable 2'
-//                 },
-//                 {
-//                     start: Date.UTC(2018, 11, 10),
-//                     end: Date.UTC(2018, 12, 23),
-//                     name: 'Entregable 3'
-//                 }
-//             ]
-//         }
-//     ]
-// });
-
-
-function cambiarDatePicker(valorSelect){
-    let boleano = true
-    if(valorSelect == 2){
-        boleano = false
-    }
-    
-    inicializarDatePicker(boleano)
-}
-
-inicializarDatePicker(true)
-
+});
 
 function inicializarDatePicker(valor){
     $('#rangoFechas').daterangepicker({
@@ -134,14 +13,15 @@ function inicializarDatePicker(valor){
         "autoApply": true,
         "showCustomRangeLabel": false,
         "alwaysShowCalendars": true,
-        "startDate": "04/15/2023",
-        "endDate": "04/21/2023",
+        "startDate": "14/03/2023",
+        "endDate": "18/03/2023",
         "locale": {
+            "format": "DD/MM/YYYY",
             "separator": " - ",
             "applyLabel": "Aplicar",
             "cancelLabel": "Cancelar",
             "fromLabel": "From",
-            "toLabel": "To",    
+            "toLabel": "To",
             "customRangeLabel": "Custom",
             "daysOfWeek": [
                 "Do",
@@ -166,10 +46,65 @@ function inicializarDatePicker(valor){
                 "Noviembre",
                 "Diciembre"
             ],
-          }
-    }, function(start, end, label) {
-      console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+        }
     });
+}
+
+function agregarBotones(){
+    let divTest = document.createElement('div')
+    divTest.style.display = 'flex'
+    divTest.style.borderLeft = '1px solid #eee'
+    
+    let divOpciones = document.createElement('div')
+    divOpciones.style.display = 'block'
+
+    let divFecha = document.createElement('div')
+    divFecha.innerText = 'Fecha Unica'
+    divFecha.setAttribute('id','optionFecha')
+    divFecha.classList.add('botonFechas')
+
+    let divRango = document.createElement('div')
+    divRango.innerText = 'Rango de Fechas'
+    divRango.setAttribute('id','optionRango')
+    divRango.classList.add('botonFechas')
+
+    divOpciones.appendChild(divFecha)
+    divOpciones.appendChild(divRango)
+
+    divTest.appendChild(divOpciones)
+    
+    // document.querySelector('.daterangepicker').appendChild(divTest)
+
+    document.querySelector('.daterangepicker').insertAdjacentElement('afterbegin',divTest)
+    
+    document.querySelector('#optionFecha').addEventListener('click',function(){
+        modificarCalendario(1)
+    },false)
+    document.querySelector('#optionRango').addEventListener('click',function(){
+        modificarCalendario(2)
+    },false)
+}
+
+function modificarCalendario(valor){
+    console.log("entro a la funcion")
+    document.querySelector('#optionFecha').style.background = 'white'
+    document.querySelector('#optionRango').style.background = 'white'
+    document.querySelector('#optionFecha').style.color = 'black'
+    document.querySelector('#optionRango').style.color = 'black'
+
+    if(valor==1){   //single date picker
+        inicializarDatePicker(true)
+        agregarBotones()
+        document.querySelector('#optionFecha').style.background = '#08c'
+        document.querySelector('#optionFecha').style.color = 'white'
+
+    }else{          //range date picker
+        inicializarDatePicker(false)
+        agregarBotones()
+        document.querySelector('#optionRango').style.background = '#08c'
+        document.querySelector('#optionRango').style.color = 'white'
+
+    }
 }
 
 

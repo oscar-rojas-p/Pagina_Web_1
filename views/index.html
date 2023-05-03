@@ -33,43 +33,27 @@
     </body>
 </html>
 
-<div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>N</th>
-                <th>ELEMENTO</th>
-                <th>EMPRESA</th>
-                <th>PROGRESO</th>
-                <th>A</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>asdf</td>
-                <td>asdf</td>
-                <td>
-                    <progress style="width: 100%;" max="10" value="6"></progress>
-                    <progress style="width: 100%;appearance:default;background:green" max="100" value="70"></progress>
-                </td>
-                <td>asd</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<style>
+    .botonFechas{
+        cursor: pointer;
+        font-size: 12px;
+        width: 140px;
+        height: 30px;
+        padding: 8px 12px;
+    }
+    .botonFechas:hover{
+        background: #eee;
+    }
 
-<!-- <div id="divHightChart" style="width: 90%;">
-    
-</div> -->
+    .daterangepicker::before{
+        display: flex !important;
+    }
+</style>
 
-<div style="padding:10px">
-    <i class="fa fa-calendar" aria-hidden="true" style="font-size: 20px;"></i>
-    <select  id="selectTipoFecha" style="height: 30px;margin-right: -6px;" onchange="cambiarDatePicker(this.value)">
-        <option value="1">Fecha</option>
-        <option value="2">Rango</option>
-    </select>
-    <input id="rangoFechas" name="datetimes" style="width:200px; height: 30px;">
+
+<div style="padding:10px;display: flex;">
+    <i style="font-size: 20px;margin-top: 5px;margin-right: 10px;" class="fa fa-calendar-o" aria-hidden="true"></i>
+    <input id="rangoFechas" name="datetimes" style="width:200px; height: 30px;padding-left:8px;border-radius:5px;border:1px solid #c0bdbd">
 </div>
 
 
