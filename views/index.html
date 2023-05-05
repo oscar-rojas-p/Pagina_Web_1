@@ -51,6 +51,23 @@
     .daterangepicker::before{
         display: flex !important;
     }
+    
+    .dashboard {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 300px 1fr 1fr;
+        grid-template-rows: 65px 1fr 0px;
+        grid-template-areas: 
+            "header header header"
+            "menu main main"
+            "menu footer footer";
+        /* background: #003478; */
+        background:  radial-gradient(50% 30% at 50% 30%, rgb(23, 46, 83) 0%, rgb(0, 0, 0) 100%);
+
+        transition: all .3s;
+        caret-color: transparent;
+    }
 
 
     #map { 
@@ -59,14 +76,16 @@
         box-shadow: 5px 5px 5px #888;
     }
 </style>
+<div class="dashboard">
+    <div style="padding:10px;display: flex;">
+        <i style="font-size: 20px;margin-top: 5px;margin-right: 10px;" class="fa fa-calendar-o" aria-hidden="true"></i>
+        <input id="rangoFechas" name="datetimes" style="width:200px; height: 30px;padding-left:8px;border-radius:5px;border:1px solid #c0bdbd">
+    </div>
 
-
-<div style="padding:10px;display: flex;">
-    <i style="font-size: 20px;margin-top: 5px;margin-right: 10px;" class="fa fa-calendar-o" aria-hidden="true"></i>
-    <input id="rangoFechas" name="datetimes" style="width:200px; height: 30px;padding-left:8px;border-radius:5px;border:1px solid #c0bdbd">
+    <div id="map"></div>
 </div>
 
-<div id="map"></div>
+
 
 
 <!-- aca recien lee las funciones cuando eliges un id de los divs pues si se pone antes estos aun no estan declarados -->
